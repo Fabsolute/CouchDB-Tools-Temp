@@ -21,7 +21,6 @@ use Fabs\CouchDB2\Response\BulkDocsResponse;
 use Fabs\CouchDB2\Response\LuceneResponse;
 use Fabs\CouchDB2\Response\UUIDResponse;
 use Fabstract\Component\Assert\Assert;
-use Fabstract\Component\Assert\AssertionExceptionInterface;
 use Fabstract\Component\LINQ\LINQ;
 
 abstract class DBHandlerBase
@@ -35,7 +34,6 @@ abstract class DBHandlerBase
      * HandlerBase constructor.
      * @param CouchConfig $couch_config
      * @param CouchDBExceptionHandler $exception_handler
-     * @throws AssertionExceptionInterface
      */
     public function __construct($couch_config, $exception_handler = null)
     {
@@ -189,7 +187,6 @@ abstract class DBHandlerBase
     /**
      * @param EntityBase $entity
      * @return EntityBase|null
-     * @throws \Exception
      */
     public function save($entity)
     {
@@ -209,7 +206,6 @@ abstract class DBHandlerBase
     /**
      * @param EntityBase[] $entities
      * @return EntityBase[]
-     * @throws \Exception
      */
     public function saveAll($entities)
     {

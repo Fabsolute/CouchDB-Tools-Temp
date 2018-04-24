@@ -30,7 +30,6 @@ abstract class EntityBase extends CouchObject
 
     /**
      * @return array|mixed
-     * @throws \Exception
      */
     public function jsonSerialize()
     {
@@ -49,7 +48,6 @@ abstract class EntityBase extends CouchObject
 
     /**
      * @param array $data
-     * @throws \Exception
      */
     public function deserializeFromArray($data)
     {
@@ -66,7 +64,6 @@ abstract class EntityBase extends CouchObject
 
     /**
      * @return bool
-     * @throws \Exception
      */
     public function isChanged()
     {
@@ -76,7 +73,6 @@ abstract class EntityBase extends CouchObject
 
     /**
      * @return array
-     * @throws \Exception
      */
     public function getChangedList()
     {
@@ -153,9 +149,6 @@ abstract class EntityBase extends CouchObject
     }
 
 
-    /**
-     * @throws \Exception
-     */
     public function updateCachedData()
     {
         $this->cached_data = $this->getCleanData();
@@ -163,7 +156,6 @@ abstract class EntityBase extends CouchObject
 
     /**
      * @return array|mixed
-     * @throws \Exception
      */
     private function getCleanData()
     {
