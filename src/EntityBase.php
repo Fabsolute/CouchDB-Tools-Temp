@@ -35,7 +35,7 @@ abstract class EntityBase extends CouchObject
     {
         $output = parent::jsonSerialize();
 
-        if (strlen($this->created_at_timestamp) === 0) {
+        if ($this->created_at_timestamp === 0) {
             $this->created_at_timestamp = DateTimeHandler::now();
         }
         $this->updated_at_timestamp = DateTimeHandler::now();
