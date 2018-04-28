@@ -7,10 +7,10 @@ use Fabstract\Component\DateTimeHandler\DateTimeHandler;
 
 abstract class EntityBase extends CouchObject
 {
-    /** @var string */
-    public $created_at = null;
-    /** @var string */
-    public $updated_at = null;
+    /** @var int */
+    public $created_at_timestamp = 0;
+    /** @var int */
+    public $updated_at_timestamp = 0;
     /** @var bool */
     public $dummy = false;
     /** @var array */
@@ -23,8 +23,8 @@ abstract class EntityBase extends CouchObject
     {
         parent::__construct();
 
-        $this->makeTransient('created_at');
-        $this->makeTransient('updated_at');
+        $this->makeTransient('created_at_timestamp');
+        $this->makeTransient('updated_at_timestamp');
         $this->makeTransient('cached_data');
     }
 
@@ -35,13 +35,13 @@ abstract class EntityBase extends CouchObject
     {
         $output = parent::jsonSerialize();
 
-        if (strlen($this->created_at) === 0) {
-            $this->created_at = DateTimeHandler::currentTime();
+        if (strlen($this->created_at_timestamp) === 0) {
+            $this->created_at_timestamp = DateTimeHandler::currentTime();
         }
-        $this->updated_at = DateTimeHandler::currentTime();
+        $this->updated_at_timestamp = DateTimeHandler::currentTime();
 
-        $output['created_at'] = $this->created_at;
-        $output['updated_at'] = $this->updated_at;
+        $output['created_at_timestamp'] = $this->created_at_timestamp;
+        $output['updated_at_timestamp'] = $this->updated_at_timestamp;
 
         return $output;
     }
@@ -53,12 +53,12 @@ abstract class EntityBase extends CouchObject
     {
         parent::deserializeFromArray($data);
 
-        if (isset($data['created_at'])) {
-            $this->created_at = $data['created_at'];
+        if (isset($data['created_at_timestamp'])) {
+            $this->created_at_timestamp = $data['created_at_timestamp'];
         }
 
-        if (isset($data['updated_at'])) {
-            $this->updated_at = $data['updated_at'];
+        if (isset($data['updated_at_timestamp'])) {
+            $this->updated_at_timestamp = $data['updated_at_timestamp'];
         }
     }
 
@@ -87,7 +87,7 @@ abstract class EntityBase extends CouchObject
         $diff_path_list = $this->createPath($diff);
         $changed_list = $this->selectLastPath($diff_path_list);
 
-        $changed_list['updated_at'] = $this->updated_at;
+        $changed_list['updated_at_timestamp'] = $this->updated_at_timestamp;
         return $changed_list;
     }
 
@@ -160,11 +160,10 @@ abstract class EntityBase extends CouchObject
     private function getCleanData()
     {
         $output = $this->jsonSerialize();
-        unset($this->cached_data['updated_at']);
-        unset($this->cached_data['created_at']);
-        unset($output['updated_at']);
-        unset($output['created_at']);
+        unset($this->cached_data['updated_at_timestamp']);
+        unset($this->cached_data['created_at_timestamp']);
+        unset($output['updated_at_timestamp']);
+        unset($output['created_at_timestamp']);
         return $output;
     }
 }
-
