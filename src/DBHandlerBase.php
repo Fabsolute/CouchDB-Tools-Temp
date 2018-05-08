@@ -166,6 +166,7 @@ abstract class DBHandlerBase
 
         try {
             $rows = $this->getDBQuery()
+                ->getAllDocs()
                 ->setIncludeDocs(true)
                 ->setKeys($id_list)
                 ->execute()
