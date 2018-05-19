@@ -387,7 +387,7 @@ abstract class DBHandlerBase
      * @param LuceneResponse $lucene_response
      * @return EntityBase[]
      */
-    private function getEntityListFromLuceneResponse($lucene_response)
+    protected function getEntityListFromLuceneResponse($lucene_response)
     {
         $rows = $lucene_response->getRows();
 
@@ -403,7 +403,7 @@ abstract class DBHandlerBase
      * @param LuceneResponse $lucene_response
      * @return int
      */
-    private function getTotalCountFromLuceneResponse($lucene_response)
+    protected function getTotalCountFromLuceneResponse($lucene_response)
     {
         return $lucene_response->getTotalRows();
     }
