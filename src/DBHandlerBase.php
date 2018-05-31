@@ -247,7 +247,7 @@ abstract class DBHandlerBase
 
     /**
      * @param int $count
-     * @return mixed
+     * @return string[]
      */
     public function generateDocId($count = 1)
     {
@@ -256,7 +256,7 @@ abstract class DBHandlerBase
             ->getUUIDs($count)
             ->execute();
 
-        return $uuid_response->getUUIDs()[0];
+        return $uuid_response->getUUIDs();
     }
 
     /**
