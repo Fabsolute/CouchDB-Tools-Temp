@@ -1,6 +1,6 @@
 <?php
 
-namespace BNG\Component\CouchDBTools\Constant;
+namespace Necipallef\CouchDBTools\Constant;
 
 class DesignDocuments
 {

@@ -1,6 +1,6 @@
 <?php
 
-namespace BNG\Component\CouchDBTools;
+namespace Necipallef\CouchDBTools;
 
 use Fabs\CouchDB2\Exception\CouchDBException;
 

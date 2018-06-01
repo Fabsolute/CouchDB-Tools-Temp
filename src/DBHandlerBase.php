@@ -2,11 +2,11 @@
 
 /** @noinspection PhpRedundantCatchClauseInspection */
 
-namespace BNG\Component\CouchDBTools;
+namespace Necipallef\CouchDBTools;
 
-use BNG\Component\CouchDBTools\Constant\DesignDocuments;
-use BNG\Component\CouchDBTools\Constant\Views;
-use BNG\Component\CouchDBTools\Model\SearchResponseModel;
+use Necipallef\CouchDBTools\Constant\DesignDocuments;
+use Necipallef\CouchDBTools\Constant\Views;
+use Necipallef\CouchDBTools\Model\SearchResponseModel;
 use Fabs\CouchDB2\Couch;
 use Fabs\CouchDB2\CouchConfig;
 use Fabs\CouchDB2\Exception\CouchDBException;

@@ -16,7 +16,7 @@
   ],
   "autoload": {
     "psr-4": {
-      "BNG\\Component\\CouchDBTools\\": "src"
+      "Necipallef\\CouchDBTools\\": "src"
     }
   },
   "require": {

@@ -1,8 +1,8 @@
 <?php
 
-namespace BNG\Component\CouchDBTools\Model;
+namespace Necipallef\CouchDBTools\Model;
 
-use BNG\Component\CouchDBTools\EntityBase;
+use Necipallef\CouchDBTools\EntityBase;
 use Fabs\Serialize\SerializableObject;
 
 class SearchResponseModel extends SerializableObject
