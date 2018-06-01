@@ -1,5 +1,5 @@
 {
-  "name": "bng-component/couchdb-tools",
+  "name": "necipallef/couchdb-tools",
   "type": "library",
   "description": "CouchDB Tools for PHP",
   "keywords": [
