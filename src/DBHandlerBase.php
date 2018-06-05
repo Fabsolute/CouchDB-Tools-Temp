@@ -260,6 +260,22 @@ abstract class DBHandlerBase
     }
 
     /**
+     * @param int $count
+     * @return null|string[]
+     */
+    public function generateUniqueId($count = 1)
+    {
+        try {
+            return (new CouchCustomUUIDsQuery($this->getCouch(), $count))
+                ->execute()
+                ->getUUIDs();
+        } catch (CouchDBException $exception) {
+            $this->onCouchDBException($exception);
+            return null;
+        }
+    }
+
+    /**
      * @param EntityBase $entity
      * @return bool|null
      */
