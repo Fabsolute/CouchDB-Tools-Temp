@@ -38,9 +38,30 @@ abstract class DBHandlerBase
     public function __construct($couch_config, $exception_handler = null)
     {
         Assert::isType($couch_config, CouchConfig::class, 'couch_config');
+        if ($exception_handler !== null) {
+            Assert::isImplements($exception_handler, CouchDBExceptionHandler::class, 'exception_handler');
+        }
 
         $this->couch = new Couch($couch_config);
         $this->exception_handler = $exception_handler;
+    }
+
+    /**
+     * @param CouchDBExceptionHandler $exception_handler
+     */
+    public function setExceptionHandler($exception_handler)
+    {
+        Assert::isImplements($exception_handler, CouchDBExceptionHandler::class, 'exception_handler');
+
+        $this->exception_handler = $exception_handler;
+    }
+
+    /**
+     * @return CouchDBExceptionHandler|null
+     */
+    public function getExceptionHandler()
+    {
+        return $this->exception_handler;
     }
 
     /**
