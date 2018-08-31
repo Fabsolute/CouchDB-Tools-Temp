@@ -23,7 +23,7 @@
     "php": "^7.0",
     "fabs/couchdb2": "dev-develop",
     "fabs/serialize": "dev-develop",
-    "fabstract/datetime-handler": "^0.1.0",
+    "fabstract/datetime-handler": "^0.2.0",
     "fabstract/assert": "^0.1.0",
     "fabstract/linq": "^0.1.0"
   }
