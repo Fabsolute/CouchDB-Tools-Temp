@@ -159,7 +159,7 @@ abstract class DBHandlerBase
 
             return $response;
         } catch (CouchDBException $exception) {
-            if ($ignore_exception !== false) {
+            if ($ignore_exception === false) {
                 $this->onCouchDBException($exception);
             }
 
